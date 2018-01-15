@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="pt">
+  <head>
+    <title>TelEduc</title>
+    <meta name="robots" content="follow,index" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="owner" content="" />
+    <meta name="copyright" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link href="../cursos/aplic/js-css/ambiente.css" rel="stylesheet" type="text/css">
+    <link href="../cursos/aplic/js-css/navegacao.css" rel="stylesheet" type="text/css">
+    <link href="../cursos/aplic/js-css/tabelas.css" rel="stylesheet" type="text/css">
+    <link href="../cursos/aplic/js-css/dhtmlgoodies_calendar.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../cursos/aplic/bibliotecas/dhtmllib.js"></script>
+    <script type="text/javascript" src="../cursos/aplic/js-css/dhtmlgoodies_calendar.js"></script>
+    <script type="text/javascript" src="../cursos/aplic/js-css/jscript.js"></script>
+    <script type="text/javascript" src="../bibliotecas/dhtmllib.js"></script>
+    <script type="text/javascript">
+
+      function Iniciar()
+      {
+        startList();
+      }
+
+     function TestaNome(form){
+          Campo_login = form.login.value;
+          Campo_senha = form.senha.value;
+          while (Campo_login.search(" ") != -1){
+          Campo_login = Campo_login.replace(/ /, "");
+        }
+        if (Campo_login == ''){
+          alert('Por favor, preencha o campo "Login".');
+          document.formAutentica.login.focus();
+          return(false);
+        } else {
+          while (Campo_senha.search(" ") != -1){
+            Campo_senha = Campo_senha.replace(/ /, "");
+          }
+          if (Campo_senha == ''){
+            alert('Por favor, preencha o campo "Senha".');
+          document.formAutentica.senha.focus();
+            return(false);
+          }
+        }
+        return(true);
+      }
+
+      function Login_onfocus(obj){
+         obj.className='estiloPadrao';
+         if (obj.value=="Digite seu login"){
+           obj.value="";
+         }
+      }
+
+      function Login_onblur(obj){
+         if (obj.value==""){
+           obj.className='valorExemplo';
+           obj.value="Digite seu login";
+         }
+      }
+
+    </script>
+
+  </head>
+  <body link="#0000ff" vlink="#0000ff" bgcolor="white" onload="Iniciar();" >
+    <a name="topo1"></a>
+    <h1><a href="../" title="TelEduc"><img src="../imgs/logo.gif" border="0" alt="TelEduc . Educa&ccedil;&atilde;o a Dist&acirc;ncia" /></a></h1>
+    <table cellpadding="0" cellspacing="0" id="container">
+      <tr>
+        <td></td>
+        <td valign="top" id="topo"><!--NAVEGACAO NIVEL 3-->
+          <ul id="nav3nivel">
+            <map title="Menu superior">
+              <li class="visoes"><a href="equipe.php">Equipe</a></li>
+              <li class="visoes"><a href="autenticacao_cadastro.php">Login</a></li>
+            </map>
+          </ul>
+          <map title="Menu de idiomas"><ul id="nav3nivel" class="PosicaoBandeiras">
+            <li>&nbsp;&nbsp;&nbsp;<img src="../imgs/bandeira_1.png"style="vertical-align:text-bottom;" />&nbsp;&nbsp;<a href="autenticacao_cadastro.php?cod_curso=812&amp;tipo_curso=&amp;cod_lin=1">Português</a></li>
+            <li>&nbsp;&nbsp;&nbsp;<img src="../imgs/bandeira_3.png"style="vertical-align:text-bottom;" />&nbsp;&nbsp;<a href="autenticacao_cadastro.php?cod_curso=812&amp;tipo_curso=&amp;cod_lin=3">English</a></li>
+            <li>&nbsp;&nbsp;&nbsp;<img src="../imgs/bandeira_4.png"style="vertical-align:text-bottom;" />&nbsp;&nbsp;<a href="autenticacao_cadastro.php?cod_curso=812&amp;tipo_curso=&amp;cod_lin=4">Português PT</a></li>
+          </ul></map>
+          </ul>
+          <h3>TelEduc</h3>
+          <div id="feedback" class="feedback_hidden"><span id="span_feedback">ocorreu um erro na sua solicitacao</span></div>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2" style="width:200px" valign="top">
+          <ul id="nav">
+            <div class="navCabecalho">TelEduc</div>
+            <li><a href="teleduc.php">O que é o TelEduc</a></li>
+            <li><a href="estrutura.php">Estrutura do Ambiente</a></li>
+            <li><a href="cadastro.php?cod_curso=812&tipo_curso=">Cadastre-se</a></li>
+          </ul><ul id="nav">            <div class="navCabecalho">Cursos</div>
+            <li><a href="cursos_all.php?tipo_curso=I">Inscrições Abertas</a></li>
+            <li><a href="cursos_all.php?tipo_curso=N">Não iniciados</a></li>
+            <li><a href="cursos_all.php?tipo_curso=A">Em Andamento</a></li>
+            <li><a href="cursos_all.php?tipo_curso=F">Encerrados</a></li>
+            <li><a href="criar_curso.php">Como criar um curso</a></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td width="100%" valign="top" id="conteudo">
+          <h4>Autenticação</h4>
+          <div id="mudarFonte">
+           <a onclick="mudafonte(2)" href="#"><img width="17" height="15" border="0" align="right" alt="Letra tamanho 3" src="../cursos/aplic/imgs/btFont1.gif"/></a>
+           <a onclick="mudafonte(1)" href="#"><img width="15" height="15" border="0" align="right" alt="Letra tamanho 2" src="../cursos/aplic/imgs/btFont2.gif"/></a>
+           <a onclick="mudafonte(0)" href="#"><img width="14" height="15" border="0" align="right" alt="Letra tamanho 1" src="../cursos/aplic/imgs/btFont3.gif"/></a>
+          </div>
+                  <ul class="btsNav"><li><span onclick="javascript:history.back(-1);">&nbsp;&lt;&nbsp;voltar&nbsp;</span></li></ul>
+          <table cellpadding="0" cellspacing="0"  id="tabelaExterna" class="tabExterna">
+            <tr>
+              <td colspan="4">
+                <table cellspacing="0" id="divide_meio" class="tabInterna">
+                  <tr id="caixaAutenticacao">   
+                    <td class="divide_meio" align="center">
+                    Digite seus dados nos campos abaixo para entrar no ambiente.
+                        <form id="formAutentica" name="formAutentica" action="acoes.php" onSubmit="return(TestaNome(document.formAutentica));" method="post" >
+                          <input type="hidden" name="acao" id="acao" value="autenticar" />
+                          <input type="hidden" name="cod_curso" value="812" />
+                          <input type="hidden" name="cod_lingua" value="1" />
+                          <table>
+                            <tr>
+                              <td style="border:none; text-align:right;">
+                                <b>Login</b>
+                              </td>
+                              <td style="border:none">
+                                <input class="valorExemplo" type="text" id="login" name="login" size="25" maxlength="100" value='Digite seu login' onfocus=Login_onfocus(document.formAutentica.login); onblur=Login_onblur(document.formAutentica.login);>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="border:none; text-align:right;">
+                                <b>Senha</b>
+                              </td>
+                              <td style="border:none">
+                                    <input type="password" id="senha" name="senha" size="25" maxlength="100" style="border: 2px solid #9bc;" />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="border:none; text-align:right;">&nbsp;</td>
+                              <td style="border:none">
+                              <br /><input type="submit" class="input" id="Botao Entrar Login" onfocus value="Entrar" />
+                              </td>
+                            </tr>
+                          </table>
+                        </form>
+                    </td>
+                    <td class="divide_meio">
+                    Se não tiver cadastro, <a href="cadastro.php?cod_curso=812&tipo_curso=">clique aqui!</a><br />                    <br/>Se esqueceu seu login, <a href='esqueci_login.php'>clique aqui!</a><br/>                    Se esqueceu sua senha, <a href='esqueci_senha.php'>clique aqui!</a><br/>                    Se não recebeu email de confirmação de cadastro, <a href='reenviar_autenticacao.php'>clique aqui!</a><br/>                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="bottom" height="80">        </td>
+        <td valign="bottom" class="rodape">           <a tabindex="1" href="http://www.teleduc.org.br"><img src="../imgs/teleduc-EAD.jpg" alt="TelEduc: Ensino &agrave; dist&acirc;ncia" title="TelEduc - Ensino &agrave; dist&acirc;ncia" border="0" style="margin-right:5px;" /></a>&nbsp;|&nbsp;
+          <a tabindex="2" href="http://www.nied.unicamp.br"><img src="../imgs/logoNied.gif" acronym title="N&uacute;cleo de Inform&aacute;tica Aplicada a Educa&ccedil;&atilde;o" alt="nied" border="0" style="margin-right: 8px; margin-bottom: 6px;" /></a>&nbsp;|&nbsp;          <a tabindex="3" href="http://www.ic.unicamp.br" title="Instituto de Computa&ccedil;&atilde;o"><img src="../imgs/logoInstComp.gif" alt="Instituto de Computa&ccedil;&atilde;o" border="0" style="margin-right: 6px; margin-bottom: -2px;" /></a>&nbsp;|&nbsp;          <a tabindex="4" href="http://www.unicamp.br" title="Unicamp"><img src="../imgs/logoUnicamp.gif" alt="UNICAMP" style="margin-bottom: 2px;"border="0" /></a>
+        </td>
+      </tr>
+      <tr>
+        <td valign="bottom">        </td>
+        <td valign="bottom" class="rodape" lang="pt"> Versão: 4.3.2 Servidor: ggte.unicamp.br<br> 2010  - TelEduc - Todos os direitos reservados. <em lang="en">All rights reserved</em> - NIED - UNICAMP</td>
+      </tr>
+    </table>
+  </body>
+</html>
